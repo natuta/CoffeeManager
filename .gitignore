@@ -1,0 +1,21 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pytest_cache/
+.coverage
+htmlcov/
+
+# Entorno virtual
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# Streamlit
+.streamlit/
+
+# Sistema
+.DS_Store
+Thumbs.db
