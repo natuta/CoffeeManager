@@ -1,19 +1,19 @@
-# app/producto.py
+
 from dataclasses import dataclass
 import math
 
 
 @dataclass(frozen=True)
 class Producto:
-    """Producto con nombre y precio positivo y finito."""
+   
     nombre: str
     precio: float
 
-    def __post_init__(self):  # type: ignore[override]
+    def __post_init__(self):  
         if not self.nombre or not self.nombre.strip():
             raise ValueError("El nombre del producto no puede estar vacío.")
 
-        # Validar que sea número finito
+   
         try:
             precio = float(self.precio)
         except (TypeError, ValueError) as exc:

@@ -1,4 +1,3 @@
-"""Paquete principal de la aplicación CoffeeManager."""
 
 
 from .cliente import Cliente

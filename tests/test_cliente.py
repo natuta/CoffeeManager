@@ -5,9 +5,9 @@ from app import Cliente
 
 
 def test_cliente_valido():
-    c = Cliente("Ana Gómez", "ana@example.com")
+    c = Cliente("Ana Gómez", "ana@gmail.com")
     assert c.nombre == "Ana Gómez"
-    assert c.email == "ana@example.com"
+    assert c.email == "ana@gmail.com"
 
 
 

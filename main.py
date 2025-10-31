@@ -4,7 +4,7 @@ from app import Cliente, Producto, Pedido, calcular_subtotal, calcular_iva, calc
 
 
 def demo() -> None:
-    cliente = Cliente("Juan Pérez", "juan@example.com")
+    cliente = Cliente("Juan Pérez", "juan@gmail.com")
     p1 = Producto("Café", 10)
     p2 = Producto("Tostada", 5)
 

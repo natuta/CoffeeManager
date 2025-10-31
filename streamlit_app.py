@@ -12,14 +12,12 @@ from app import (
     calcular_total,
 )
 
-# -------------------------------------------------
-# Configuración base
-# -------------------------------------------------
+
 st.set_page_config(page_title="CoffeeManager", page_icon="☕", layout="wide")
 
-# -------------------------------------------------
-# Tema y estilos (Café latte vibes)
-# -------------------------------------------------
+
+# estilo
+
 st.markdown(
     """
     <style>
@@ -132,15 +130,13 @@ st.sidebar.markdown(
     unsafe_allow_html=True,
 )
 
-# -------------------------------------------------
-# Estado en memoria (sin base de datos)
-# -------------------------------------------------
+
 def seed_if_empty():
     if "clientes" not in st.session_state:
         st.session_state.clientes: List[Cliente] = [
-            Cliente("Ana Gómez", "ana@example.com"),
-            Cliente("Carlos Rojas", "carlos@example.com"),
-            Cliente("Juan Pérez", "juan@example.com"),
+            Cliente("Ana Gómez", "ana@gmail.com"),
+            Cliente("Carlos Rojas", "carlos@gmail.com"),
+            Cliente("Juan Pérez", "juan@gmail.com"),
         ]
     if "productos" not in st.session_state:
         st.session_state.productos: List[Producto] = [
@@ -155,9 +151,7 @@ def seed_if_empty():
 
 seed_if_empty()
 
-# -------------------------------------------------
-# Helpers
-# -------------------------------------------------
+
 def df_clientes() -> pd.DataFrame:
     return pd.DataFrame([{"Nombre": c.nombre, "Email": c.email or ""} for c in st.session_state.clientes])
 
@@ -184,9 +178,7 @@ def df_pedidos() -> pd.DataFrame:
 def table_height(df: pd.DataFrame, base: int = 80) -> int:
     return min(420, base + 35 * (len(df) + 1))
 
-# -------------------------------------------------
-# Navegación (con iconos)
-# -------------------------------------------------
+
 label_map = {
     "Inicio": "🏠  Inicio",
     "Pedidos": "🧾  Pedidos",
@@ -202,11 +194,10 @@ choice = st.sidebar.radio(
     label_visibility="collapsed",
 )
 
-# -------------------------------------------------
-# Páginas
-# -------------------------------------------------
+# Paginas
+
 if choice == "Inicio":
-    st.title("CoffeeManager – Sistema de pedidos")
+    st.title("CoffeeManager")
     c1, c2, c3 = st.columns(3)
     with c1: st.metric("Clientes", len(st.session_state.clientes))
     with c2: st.metric("Productos", len(st.session_state.productos))
@@ -350,5 +341,5 @@ if choice == "Pedidos":
                 except Exception as e:
                     st.error(str(e))
 
-# Footer
-st.sidebar.caption("Sabor a código • In-memory (sin BD)")
+# footer
+st.sidebar.caption("Coffe • @")
